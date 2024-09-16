@@ -1,5 +1,11 @@
 let randomElement;
 
+function randomButton() {
+    const elements = document.body.getElementsByClassName("btn btn-outline-primary");
+    const index = Math.floor(Math.random() * elements.length);
+    randomElement = elements[index];
+}
+
 function generateButtons() {
     const container = document.getElementById("generateHere");
     const number = document.getElementById("insertNumber").value;
@@ -11,9 +17,7 @@ function generateButtons() {
         button.setAttribute("onclick", "checkWinner(this)");
         container.appendChild(button);
     }
-    const elements = document.body.getElementsByClassName("btn btn-outline-primary");
-    const index = Math.floor(Math.random() * elements.length);
-    randomElement = elements[index];
+    randomButton();
 }
 
 function checkWinner(button) {
